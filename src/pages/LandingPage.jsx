@@ -14,7 +14,7 @@ const LandingPage = () => {
           <div style={{ background: 'var(--primary)', padding: '6px', borderRadius: '8px', display: 'flex', alignItems: 'center' }}>
             <Sprout size={24} color="white" />
           </div>
-          <h2 style={{ fontSize: '20px', color: 'var(--primary)', margin: 0 }}>AgriConnect 360</h2>
+          <h2 style={{ fontSize: '20px', color: 'var(--primary)', margin: 0 }}>AgroSpire</h2>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
           {['Product', 'Farmers', 'Merchants', 'Case Studies'].map(item => (
@@ -192,7 +192,7 @@ const LandingPage = () => {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '24px' }}>
               <Sprout size={32} color="#00E676" />
-              <h2 style={{ fontSize: '24px', color: 'white', margin: 0 }}>AgriConnect 360</h2>
+              <h2 style={{ fontSize: '24px', color: 'white', margin: 0 }}>AgroSpire</h2>
             </div>
             <p style={{ maxWidth: '300px', opacity: 0.6, lineHeight: 1.6 }}>The world's leading AI-powered ecosystem for smart agricultural management and connectivity.</p>
           </div>
@@ -212,7 +212,7 @@ const LandingPage = () => {
           </div>
         </div>
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '40px', textAlign: 'center', color: 'rgba(255,255,255,0.4)', fontSize: '14px' }}>
-          &copy; 2026 AgriConnect 360. All rights reserved. Made for the Future of Sustainable Agriculture.
+          &copy; 2026 AgroSpire. All rights reserved. Made for the Future of Sustainable Agriculture.
         </div>
       </footer>
 

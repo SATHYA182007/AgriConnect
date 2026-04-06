@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { User, ShoppingBag, LayoutDashboard, Mail, Lock, ChevronRight, Sprout, Tractor, UserCheck } from 'lucide-react';
+import { User, ShoppingBag, LayoutDashboard, Mail, Lock, ChevronRight, Sprout, Tractor, UserCheck, ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const roles = [
@@ -11,8 +11,21 @@ const roles = [
 
 const LoginPage = () => {
   const [selectedRole, setSelectedRole] = useState('farmer');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+
+  const handleRoleChange = (roleId) => {
+    setSelectedRole(roleId);
+    setEmail('');
+    setPassword('');
+  };
+
+  const fillDemoCredentials = () => {
+    setEmail(`${selectedRole}@agriconnect.demo`);
+    setPassword('demo123');
+  };
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -20,7 +33,7 @@ const LoginPage = () => {
     // Simulate login for demo purposes
     setTimeout(() => {
       setIsLoading(false);
-      navigate(`/${selectedRole}/dashboard`);
+      navigate(`/${selectedRole}/overview`);
     }, 1500);
   };
 
@@ -35,10 +48,10 @@ const LoginPage = () => {
           style={{ zIndex: 2 }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '32px' }}>
-            <div className="glass" style={{ width: '48px', height: '48px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div className="glass-transparent" style={{ width: '48px', height: '48px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <Sprout size={28} color="#00E676" />
             </div>
-            <h1 style={{ color: 'white', fontSize: '28px' }}>AgriConnect 360</h1>
+            <h1 style={{ color: 'white', fontSize: '28px' }}>AgroSpire</h1>
           </div>
           
           <h2 style={{ color: 'white', fontSize: '42px', lineHeight: 1.2, marginBottom: '24px' }}>
@@ -48,7 +61,7 @@ const LoginPage = () => {
             Empowering farmers and merchants with AI-driven insights and a seamless digital marketplace.
           </p>
           
-          <div className="glass" style={{ padding: '24px', borderRadius: '16px', display: 'flex', alignItems: 'center', gap: '16px', maxWidth: '350px' }}>
+          <div className="glass-transparent" style={{ padding: '24px', borderRadius: '16px', display: 'flex', alignItems: 'center', gap: '16px', maxWidth: '350px' }}>
             <div style={{ background: 'rgba(255,255,255,0.2)', width: '40px', height: '40px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <UserCheck size={20} />
             </div>
@@ -72,6 +85,15 @@ const LoginPage = () => {
           className="glass"
           style={{ width: '100%', maxWidth: '480px', padding: '48px', borderRadius: '24px' }}
         >
+          <button 
+            onClick={() => navigate('/')}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'none', border: 'none', cursor: 'pointer', color: '#64748b', fontSize: '14px', fontWeight: 500, marginBottom: '24px', padding: 0, transition: 'color 0.2s' }}
+            onMouseOver={(e) => e.currentTarget.style.color = '#1e293b'}
+            onMouseOut={(e) => e.currentTarget.style.color = '#64748b'}
+          >
+            <ArrowLeft size={16} /> Back to Home
+          </button>
+
           <div style={{ marginBottom: '32px' }}>
             <h3 style={{ fontSize: '24px', color: '#1e293b', marginBottom: '8px' }}>Welcome Back</h3>
             <p style={{ color: '#64748b' }}>Select your account type to access your dashboard.</p>
@@ -84,7 +106,7 @@ const LoginPage = () => {
               return (
                 <button
                   key={role.id}
-                  onClick={() => setSelectedRole(role.id)}
+                  onClick={() => handleRoleChange(role.id)}
                   style={{
                     border: 'none',
                     background: selectedRole === role.id ? 'white' : 'transparent',
@@ -116,6 +138,8 @@ const LoginPage = () => {
                 <input 
                   type="text" 
                   placeholder="Enter your registered email" 
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   style={{ width: '100%', padding: '14px 14px 14px 44px', borderRadius: '12px', border: '1px solid #e2e8f0', background: 'white', transition: 'all 0.2s' }} 
                   required
                 />
@@ -132,16 +156,18 @@ const LoginPage = () => {
                 <input 
                   type="password" 
                   placeholder="••••••••" 
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   style={{ width: '100%', padding: '14px 14px 14px 44px', borderRadius: '12px', border: '1px solid #e2e8f0', background: 'white', transition: 'all 0.2s' }} 
                   required
                 />
               </div>
             </div>
-
+            
             <button 
               type="submit" 
               className="btn-primary" 
-              style={{ width: '100%', padding: '16px', fontSize: '16px' }}
+              style={{ width: '100%', padding: '16px', fontSize: '16px', background: '#1e293b', boxShadow: '0 4px 12px rgba(30, 41, 59, 0.2)' }}
               disabled={isLoading}
             >
               {isLoading ? (
@@ -149,6 +175,15 @@ const LoginPage = () => {
               ) : (
                 <>Sign In to Dashboard <ChevronRight size={18} /></>
               )}
+            </button>
+
+            <button 
+              type="button"
+              onClick={fillDemoCredentials}
+              className="btn-ghost"
+              style={{ width: '100%', padding: '14px', fontSize: '14px', marginTop: '12px', color: '#64748b', border: '1px dashed #cbd5e1' }}
+            >
+              Fill Demo Credentials
             </button>
           </form>
 

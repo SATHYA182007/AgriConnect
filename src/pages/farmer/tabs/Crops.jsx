@@ -3,9 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Sprout, BarChart3, Cloud, Droplets, Calendar, Edit2, Trash2, MapPin, Search, Plus, Filter } from 'lucide-react';
 
 const myCrops = [
-  { id: 1, name: 'Tuff-Yield Wheat', variant: 'Rust Resistant (R260)', sown: 'Jan 12, 2026', harvest: 'Jun 30, 2026', health: 'Optimal', data: 'Yield Forecast: 5.2 T/Ha', status: 'Healthy', moisture: '72%', img: 'https://plus.unsplash.com/premium_photo-1661919582136-19391ab1ecfa?q=80&w=2670&auto=format&fit=crop' },
-  { id: 2, name: 'Premium Basmati', variant: 'Long Grain (XL)', sown: 'Feb 5, 2026', harvest: 'Sep 15, 2026', health: 'Critical', data: 'Yield Forecast: 3.1 T/Ha', status: 'Irrigation Required', moisture: '45%', img: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=2670&auto=format&fit=crop' },
-  { id: 3, name: 'Organic Soya', variant: 'Nitrogen Rich', sown: 'Mar 1, 2026', harvest: 'Nov 12, 2026', health: 'Optimal', data: 'Yield Forecast: 4.8 T/Ha', status: 'Healthy', moisture: '81%', img: 'https://images.unsplash.com/photo-1550989460-0adf9ea622e2?q=80&w=2670&auto=format&fit=crop' }
+  { id: 1, name: 'Tuff-Yield Wheat', variant: 'Rust Resistant (R260)', sown: 'Jan 12, 2026', harvest: 'Jun 30, 2026', health: 'Optimal', data: 'Yield Forecast: 5.2 T/Ha', status: 'Healthy', moisture: '72%', img: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?q=80&w=1600&auto=format&fit=crop' },
+  { id: 2, name: 'Premium Basmati', variant: 'Long Grain (XL)', sown: 'Feb 5, 2026', harvest: 'Sep 15, 2026', health: 'Critical', data: 'Yield Forecast: 3.1 T/Ha', status: 'Irrigation Required', moisture: '45%', img: 'https://images.unsplash.com/photo-1585807908871-bc01ba47db6a?q=80&w=1600&auto=format&fit=crop' },
+  { id: 3, name: 'Organic Soya', variant: 'Nitrogen Rich', sown: 'Mar 1, 2026', harvest: 'Nov 12, 2026', health: 'Optimal', data: 'Yield Forecast: 4.8 T/Ha', status: 'Healthy', moisture: '81%', img: 'https://images.unsplash.com/photo-1592982537443-d141e6eef56d?q=80&w=1600&auto=format&fit=crop' },
+  { id: 4, name: 'Golden Corn', variant: 'Drought Tolerant', sown: 'Mar 15, 2026', harvest: 'Jul 20, 2026', health: 'Optimal', data: 'Yield Forecast: 8.5 T/Ha', status: 'Healthy', moisture: '68%', img: 'https://images.unsplash.com/photo-1599818815152-b88aeb78f407?q=80&w=1600&auto=format&fit=crop' },
+  { id: 5, name: 'Vine Tomatoes', variant: 'Specialty Heirloom', sown: 'Apr 2, 2026', harvest: 'Aug 10, 2026', health: 'Warning', data: 'Yield Forecast: 12.0 T/Ha', status: 'Pest Risk Detected', moisture: '60%', img: 'https://images.unsplash.com/photo-1592683901170-c5264b301afb?q=80&w=1600&auto=format&fit=crop' },
+  { id: 6, name: 'Arabica Coffee', variant: 'High Altitude', sown: 'Jan 05, 2026', harvest: 'Dec 01, 2026', health: 'Optimal', data: 'Yield Forecast: 1.5 T/Ha', status: 'Healthy', moisture: '75%', img: 'https://images.unsplash.com/photo-1524350876685-274059332603?q=80&w=1600&auto=format&fit=crop' }
 ];
 
 const Crops = () => {
@@ -37,7 +40,7 @@ const Crops = () => {
             >
               <div style={{ position: 'relative' }}>
                 <img src={crop.img} style={{ width: '100%', height: '180px', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', top: '16px', right: '16px', padding: '6px 12px', borderRadius: '40px', background: 'rgba(255,255,255,0.9)', fontSize: '11px', fontWeight: 700, color: crop.health === 'Optimal' ? '#00E676' : '#ff4444' }}>
+                <div style={{ position: 'absolute', top: '16px', right: '16px', padding: '6px 12px', borderRadius: '40px', background: 'rgba(255,255,255,0.95)', fontSize: '11px', fontWeight: 700, color: crop.health === 'Optimal' ? '#00E676' : crop.health === 'Warning' ? '#f59e0b' : '#ff4444', boxShadow: '0 4px 6px rgba(0,0,0,0.05)' }}>
                    {crop.health}
                 </div>
               </div>

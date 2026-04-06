@@ -100,7 +100,7 @@ const MerchantDashboard = () => {
             <Route path="demand" element={<Demand />} />
             <Route path="market" element={<Marketplace />} />
             <Route path="analytics" element={<Analytics />} />
-            <Route path="/" element={<Navigate to="overview" replace />} />
+            <Route path="*" element={<Navigate to="overview" replace />} />
           </Routes>
         </AnimatePresence>
       </main>

@@ -33,7 +33,7 @@ const FarmerDashboard = () => {
           <div style={{ background: 'var(--primary)', padding: '6px', borderRadius: '8px' }}>
             <Sprout size={24} color="white" />
           </div>
-          <h2 style={{ fontSize: '18px', margin: 0 }}>AgriConnect 360</h2>
+          <h2 style={{ fontSize: '18px', margin: 0 }}>AgroSpire</h2>
         </div>
 
         <nav style={{ flex: 1 }}>
@@ -99,7 +99,7 @@ const FarmerDashboard = () => {
             <Route path="market" element={<Marketplace />} />
             <Route path="ai" element={<Analytics />} />
             <Route path="weather" element={<Weather />} />
-            <Route path="/" element={<Navigate to="overview" replace />} />
+            <Route path="*" element={<Navigate to="overview" replace />} />
           </Routes>
         </AnimatePresence>
       </main>

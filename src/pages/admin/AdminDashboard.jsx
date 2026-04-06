@@ -99,7 +99,7 @@ const AdminDashboard = () => {
             <Route path="logistics" element={<LogisticsTab />} />
             <Route path="security" element={<SecurityTab />} />
             <Route path="settings" element={<div className="card" style={{ padding: '32px' }}>System Global Configurations...</div>} />
-            <Route path="/" element={<Navigate to="overview" replace />} />
+            <Route path="*" element={<Navigate to="overview" replace />} />
           </Routes>
         </AnimatePresence>
       </main>
